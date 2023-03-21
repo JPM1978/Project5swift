@@ -39,17 +39,25 @@ struct ProjectFormView: View {
                         .background(Color("textFieldBackgroundcolor")
                         .cornerRadius(10))
                     
-                    TextField("Location", text:  $project.address)
+                    TextField("", text:  $project.address)
+                        .placeholder(when: project.project.isEmpty) {
+                            Text("Location").foregroundColor(.gray)
+                        }
                         .padding()
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(uiColor: .label))
                         .font(.headline)
-                        .background(Color.white.cornerRadius(10))
+                        .background(Color("textFieldBackgroundcolor")
+                        .cornerRadius(10))
                     
-                    TextField("Due Date", text: $project.due)
+                    TextField("", text: $project.due)
+                        .placeholder(when: project.project.isEmpty) {
+                            Text("Due Date").foregroundColor(.gray)
+                        }
                         .padding()
-                        .foregroundColor(.black)
+                        .foregroundColor(Color(uiColor: .label))
                         .font(.headline)
-                        .background(Color.white.cornerRadius(10))
+                        .background(Color("textFieldBackgroundcolor")
+                        .cornerRadius(10))
                     
                     Text("Description")
                         .font(.system(size: 22))
@@ -72,14 +80,7 @@ struct ProjectFormView: View {
                         
                     }, label:  {
                         Text(isNewProject ? "Add New Project" : "Update Project")
-                            
-//                            .textFieldStyle(RoundedBorderTextFieldStyle())
-//                            .padding()
-//                            .frame(maxWidth: .infinity)
-//                            .background(Color.blue.cornerRadius(10))
-//                            .foregroundColor(.white)
-//                            .font(.headline)
-                        
+                                             
                     }
                     )
                     .buttonStyle(.borderedProminent)

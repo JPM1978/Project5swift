@@ -26,12 +26,15 @@ struct Project: Codable, Identifiable {
 struct HomeView: View {
     @State var isDisplayingNewProject: Bool = false
     @State var projects: [Project] = []
-    @State var isDisplayingLogin: Bool = true
+    @State var isDisplayingLogin: Bool = false
+    @State var isDisplayingManager: Bool = false
+    
     var body: some View {
         
         NavigationView {
             
             List {
+                
                 ForEach(projects) { project in
                     NavigationLink {
                         DetailView(project: project)
@@ -46,6 +49,7 @@ struct HomeView: View {
                         }
                         
                         .navigationTitle("Projects")
+                        .foregroundColor(.primary)
                         
                     }
                     
@@ -68,21 +72,39 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
+                        isDisplayingManager = true
+                    } label: {
+                        Image(systemName: "list.bullet.circle")
+                            .font(Font.title.weight(.bold))
+                            .foregroundColor(.primary)
+
+                    }
+
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
                         isDisplayingNewProject = true
                     } label: {
                         Image(systemName: "plus.circle.fill")
-                            .accentColor(.black)
-                    }
+                            .font(Font.title.weight(.bold))
+                            .foregroundColor(.primary)
+
+                    }}
                     
                 }
             }
             .sheet(isPresented: $isDisplayingNewProject) {
                 ProjectFormView(isNewProject: true, project: Project())
             }
-            .sheet(isPresented: $isDisplayingLogin) {
+            .fullScreenCover(isPresented: $isDisplayingLogin) {
                 LoginView()
             }
-        }
+            .sheet(isPresented: $isDisplayingManager) {
+                ManagerView()
+            }
+        
+        
         .task {
             await fetchData()
         }

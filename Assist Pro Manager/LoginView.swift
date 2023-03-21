@@ -14,56 +14,71 @@ struct LoginView: View {
     @State private var wrongUsername = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
+    @State var isDisplayingHome: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
-                
-                VStack {
-                    
-                    Text("Assist Pro Manager")
-                        .foregroundColor(.yellow)
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
-                        .background(Color.black)
-                    
-                    TextField("Username", text: $username)
-                        .padding()
-                        .frame(width:300, height: 50)
-                        .background(Color.white.opacity(0.99))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
-                    
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .frame(width:300, height: 50)
-                        .background(Color.white.opacity(0.99))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
-                    
-                    
-                    Button("Login") {
-                        
-                        authenticateUser(username: username, password: password)
-                        
-                    }
-                    
-                    .foregroundColor(.white)
-                    .frame(width: 300, height: 50)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    
-                    
-                    
-                    
-                }
-                .background {
-                    Image("titlebackground3")
-                }
-                .scrollContentBackground(.hidden)
-                .interactiveDismissDisabled()
             
+            VStack {
+                
+                Text("Assist Pro Manager")
+                    .foregroundColor(.yellow)
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                    .background(Color.black)
+                
+                TextField("Username", text: $username)
+                    .foregroundColor(.black)
+                    .padding()
+                    .frame(width:300, height: 50)
+                    .background(Color.white.opacity(0.99))
+                    .cornerRadius(10)
+                    .border(.red, width: CGFloat(wrongUsername))
+                
+                SecureField("Password", text: $password)
+                    .foregroundColor(.black)
+                    .padding()
+                    .frame(width:300, height: 50)
+                    .background(Color.white.opacity(0.99))
+                    .cornerRadius(10)
+                    .border(.red, width: CGFloat(wrongUsername))
+                
+                
+                Button("Login") {
+                    isDisplayingHome = true
+                    authenticateUser(username: username, password: password)
+                    
+                }
+                
+                .foregroundColor(.white)
+                .frame(width: 300, height: 50)
+                .background(Color.blue)
+                .cornerRadius(10)
+                
+                Button("New User") {
+                    
+                }
+                
+                .foregroundColor(.white)
+                .frame(width: 300, height: 50)
+                .background(Color.red)
+                .cornerRadius(10)
+                
+                
+                
+                
+            }
+            .background {
+                Image("titlebackground3")
+            }
+            .scrollContentBackground(.hidden)
+            .interactiveDismissDisabled()
+        }
+        
+            .fullScreenCover(isPresented: $isDisplayingHome) {
+                HomeView()
             
         }
         .navigationBarHidden(true)
@@ -83,10 +98,14 @@ struct LoginView: View {
         }
         presentationMode.wrappedValue.dismiss()
     }
+        
+        }
+    
+    
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             LoginView()
         }
     }
-}
+

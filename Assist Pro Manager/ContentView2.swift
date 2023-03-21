@@ -105,24 +105,30 @@ struct ContentView2: View {
     
     
     var body: some View {
-        ZStack {
-            if !menuOpened {
-                Button(action: {
-                    //open menu
-                    self.menuOpened.toggle()
-                }, label: {
-                    Text("Open Menu")
-                        .bold()
-                        .foregroundColor(Color.white)
-                        .frame(width: 200, height: 50, alignment:  .center)
-                        .background(Color(.systemBlue))
-                })
+        NavigationView {
+            ZStack {
+                
+                if !menuOpened {
+                    Button(action: {
+                        //open menu
+                        self.menuOpened.toggle()
+                    }, label: {
+                        Image(systemName: "house.fill")
+                            .accentColor(.black)
+    //                    Text("Open Menu")
+    //                        .bold()
+    //                        .foregroundColor(Color.white)
+    //                        .frame(width: 200, height: 50, alignment:  .center)
+    //                        .background(Color(.systemBlue))
+                    })
+                }
+                
+                SideMenu(width: UIScreen.main.bounds.width/1.6,
+                         menuOpened: menuOpened,
+                         toggleMenu: toggleMenu)
             }
-            
-            SideMenu(width: UIScreen.main.bounds.width/1.6,
-                     menuOpened: menuOpened,
-                     toggleMenu: toggleMenu)
         }
+       
         .edgesIgnoringSafeArea(.all)
     }
     
