@@ -21,13 +21,14 @@ struct LoginView: View {
         NavigationView {
             
             VStack {
-                
+                // PROPERTIES
                 Text("Assist Pro Manager")
                     .foregroundColor(.yellow)
                     .font(.largeTitle)
                     .bold()
                     .padding()
                     .background(Color.black)
+                    .cornerRadius(20)
                 
                 TextField("Username", text: $username)
                     .foregroundColor(.black)
@@ -66,7 +67,14 @@ struct LoginView: View {
                 .background(Color.red)
                 .cornerRadius(10)
                 
+                Button("Forgot Password") {
+                    
+                }
                 
+                .foregroundColor(.white)
+                .frame(width: 300, height: 50)
+                .background(Color.red)
+                .cornerRadius(10)
                 
                 
             }
@@ -83,7 +91,18 @@ struct LoginView: View {
         }
         .navigationBarHidden(true)
     }
+    
+   
+        
+            
+            
     func authenticateUser(username: String, password: String) {
+        // access request body( username, password)
+        // send a post request to our server
+        // insure request is sending a json body
+        // capture the response of the request using the token value in our code
+        // 
+        
         if username.lowercased() == "zerato2023" {
             wrongUsername = 0
             if password.lowercased() == "abc123" {
@@ -91,7 +110,7 @@ struct LoginView: View {
                 showingLoginScreen = true
             } else {
                 wrongPassword = 2
-              
+
             }
         } else {
             wrongUsername = 2

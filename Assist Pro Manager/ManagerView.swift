@@ -12,6 +12,7 @@ struct ManagerView: View {
     @State var isDisplayingNewProject: Bool = false
     @State var isDisplayingLogin: Bool = false
     @State var isDisplayingHome: Bool = false
+    @State var isDisplayingAbout: Bool = false
     var body: some View {
         
         VStack{
@@ -37,8 +38,26 @@ struct ManagerView: View {
             .cornerRadius(10)
             .bold()
             
-            Button("Settings"){
+            Button("User Profile"){
                 
+            }
+            .foregroundColor(.white)
+            .frame(width: 300, height: 50)
+            .background(Color.blue)
+            .cornerRadius(10)
+            .bold()
+            
+            Button("Reset Password"){
+                
+            }
+            .foregroundColor(.white)
+            .frame(width: 300, height: 50)
+            .background(Color.blue)
+            .cornerRadius(10)
+            .bold()
+            
+            Button("About"){
+                isDisplayingAbout = true
             }
             .foregroundColor(.white)
             .frame(width: 300, height: 50)
@@ -68,14 +87,16 @@ struct ManagerView: View {
         .fullScreenCover(isPresented: $isDisplayingHome) {
             HomeView()
         }
-            
+        .sheet(isPresented: $isDisplayingAbout) {
+            AboutPage()
+        }
     }
-}
-
-
-
-struct ManagerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ManagerView()
+    
+    
+    
+    struct ManagerView_Previews: PreviewProvider {
+        static var previews: some View {
+            ManagerView()
+        }
     }
 }

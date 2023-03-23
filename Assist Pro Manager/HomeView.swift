@@ -115,7 +115,7 @@ struct HomeView: View {
     }
     func delete(project:Project) async {
         guard let encodedProject = try? JSONEncoder().encode(project) else { return }
-        let prefixUrl = "https://project-5-mlyi.onrender.com"
+        let prefixUrl = "https://project-5-mlyi.onrender.com/"
         guard let url = URL(string: "\(prefixUrl)/assists/\(String(project.id))/") else {
             print("Not found url")
             return
