@@ -13,6 +13,7 @@ struct ManagerView: View {
     @State var isDisplayingLogin: Bool = false
     @State var isDisplayingHome: Bool = false
     @State var isDisplayingAbout: Bool = false
+    @KeychainStorage("MyToken") var savedToken: String?
     var body: some View {
         
         VStack{
@@ -66,6 +67,7 @@ struct ManagerView: View {
             .bold()
             
             Button("Log Out"){
+                savedToken = nil
                 isDisplayingLogin = true
             }
             .foregroundColor(.white)

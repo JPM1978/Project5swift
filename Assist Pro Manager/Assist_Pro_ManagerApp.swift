@@ -11,7 +11,7 @@ import SwiftUI
 struct Assist_Pro_ManagerApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            HomeView()
         }
     }
 }

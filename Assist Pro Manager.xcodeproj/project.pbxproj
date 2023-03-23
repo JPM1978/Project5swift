@@ -17,6 +17,8 @@
 		0FAF9B3029C16E1F000684F1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF9B2F29C16E1F000684F1 /* DetailView.swift */; };
 		0FD16FDF29C8AE9000BFAC6C /* ManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD16FDE29C8AE9000BFAC6C /* ManagerView.swift */; };
 		0FD16FE129CA18C500BFAC6C /* AboutPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD16FE029CA18C500BFAC6C /* AboutPage.swift */; };
+		0FD16FE329CC050000BFAC6C /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD16FE229CC050000BFAC6C /* KeyChain.swift */; };
+		0FD16FE629CC05CA00BFAC6C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD16FE529CC05CA00BFAC6C /* KeychainAccess */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,7 @@
 		0FAF9B2F29C16E1F000684F1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0FD16FDE29C8AE9000BFAC6C /* ManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManagerView.swift; path = "Assist Pro Manager/ManagerView.swift"; sourceTree = SOURCE_ROOT; };
 		0FD16FE029CA18C500BFAC6C /* AboutPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPage.swift; sourceTree = "<group>"; };
+		0FD16FE229CC050000BFAC6C /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD16FE629CC05CA00BFAC6C /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 				0F99712C29C3409C000F2A88 /* ProjectFormView.swift */,
 				0FD16FDE29C8AE9000BFAC6C /* ManagerView.swift */,
 				0FD16FE029CA18C500BFAC6C /* AboutPage.swift */,
+				0FD16FE229CC050000BFAC6C /* KeyChain.swift */,
 			);
 			path = "Assist Pro Manager";
 			sourceTree = "<group>";
@@ -101,6 +106,9 @@
 			dependencies = (
 			);
 			name = "Assist Pro Manager";
+			packageProductDependencies = (
+				0FD16FE529CC05CA00BFAC6C /* KeychainAccess */,
+			);
 			productName = "Assist Pro Manager";
 			productReference = 0FAF9B1C29C10C36000684F1 /* Assist Pro Manager.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +137,9 @@
 				Base,
 			);
 			mainGroup = 0FAF9B1329C10C36000684F1;
+			packageReferences = (
+				0FD16FE429CC05CA00BFAC6C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 0FAF9B1D29C10C36000684F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,6 +173,7 @@
 				0FD16FDF29C8AE9000BFAC6C /* ManagerView.swift in Sources */,
 				0F99713929C4D88B000F2A88 /* ContentView2.swift in Sources */,
 				0FAF9B2229C10C36000684F1 /* LoginView.swift in Sources */,
+				0FD16FE329CC050000BFAC6C /* KeyChain.swift in Sources */,
 				0FAF9B2029C10C36000684F1 /* Assist_Pro_ManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0FD16FE429CC05CA00BFAC6C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0FD16FE529CC05CA00BFAC6C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD16FE429CC05CA00BFAC6C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0FAF9B1429C10C36000684F1 /* Project object */;
 }

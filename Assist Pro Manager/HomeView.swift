@@ -28,7 +28,7 @@ struct HomeView: View {
     @State var projects: [Project] = []
     @State var isDisplayingLogin: Bool = false
     @State var isDisplayingManager: Bool = false
-    
+    @KeychainStorage("MyToken") var saveToken: String?
     var body: some View {
         
         NavigationView {
@@ -77,9 +77,9 @@ struct HomeView: View {
                         Image(systemName: "list.bullet.circle")
                             .font(Font.title.weight(.bold))
                             .foregroundColor(.primary)
-
+                        
                     }
-
+                    
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -89,20 +89,23 @@ struct HomeView: View {
                         Image(systemName: "plus.circle.fill")
                             .font(Font.title.weight(.bold))
                             .foregroundColor(.primary)
-
+                        
                     }}
-                    
-                }
+                
             }
-            .sheet(isPresented: $isDisplayingNewProject) {
-                ProjectFormView(isNewProject: true, project: Project())
-            }
-            .fullScreenCover(isPresented: $isDisplayingLogin) {
-                LoginView()
-            }
-            .sheet(isPresented: $isDisplayingManager) {
-                ManagerView()
-            }
+        }
+        .onAppear {
+            isDisplayingLogin = saveToken == nil
+        }
+        .sheet(isPresented: $isDisplayingNewProject) {
+            ProjectFormView(isNewProject: true, project: Project())
+        }
+        .fullScreenCover(isPresented: $isDisplayingLogin) {
+            LoginView()
+        }
+        .sheet(isPresented: $isDisplayingManager) {
+            ManagerView()
+        }
         
         
         .task {
