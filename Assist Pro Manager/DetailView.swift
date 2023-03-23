@@ -12,36 +12,39 @@ struct DetailView: View {
     var project: Project
     var body: some View {
         NavigationView{
-            
-            VStack{
-                
-                Text(project.project)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.largeTitle)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                
-                Text(project.address)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                
-                Text(project.manufacture)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                
-                Text(project.due)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                
-                Text(project.details)
-                    .padding()
-                
-                Spacer()
-                
+            ScrollView{
+                VStack{
+                    
+                    Text(project.project)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    
+                    Text(project.address)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    Text(project.manufacture)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    Text(project.due)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    Text(project.details)
+                        .padding()
+                    
+                    Spacer()
+                    
+                }
             }
+           
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.orange)}
-        .toolbar {
+            .scrollContentBackground(.hidden)
+            .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     sheetIsPresented = true
@@ -49,7 +52,7 @@ struct DetailView: View {
                 } label: {
                     Text("Edit")
                 }
-
+                
             }
         }
         .sheet(isPresented: $sheetIsPresented) {
