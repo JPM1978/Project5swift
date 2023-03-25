@@ -60,7 +60,11 @@ struct ProjectFormView: View {
                         .cornerRadius(10))
                     
                     Text("Description")
-                        .font(.system(size: 22))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 300, minHeight: 40)
+                        .background(LinearGradient(colors: [.black,.pink],
+                                                   startPoint: .leading, endPoint: .trailing))
+                        .clipShape(Capsule())
                     
                     TextEditor(text: $project.details)
                         .foregroundColor(Color(uiColor: .label))
@@ -84,6 +88,7 @@ struct ProjectFormView: View {
                     }
                     )
                     .buttonStyle(.borderedProminent)
+                  
                     
                     .disabled(project.project.isEmpty || project.manufacture.isEmpty || project.address.isEmpty || project.due.isEmpty || project.details.isEmpty)
                     

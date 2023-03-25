@@ -26,6 +26,11 @@ struct AboutPage: View {
                 .padding()
             
             Text("@sanctuarygames30@gmail.com")
+                .foregroundColor(.white)
+                .frame(maxWidth: 300, minHeight: 40)
+                .background(LinearGradient(colors: [.yellow,.pink],
+                                           startPoint: .leading, endPoint: .trailing))
+                .clipShape(Capsule())
                 .padding()
             
             Text("(917)-271-7853")

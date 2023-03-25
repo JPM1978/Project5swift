@@ -21,60 +21,78 @@ struct ManagerView: View {
                 .padding(.bottom)
                 .font(.system(size:60))
             
-            Button("Projects"){
+            Button(){
                 isDisplayingHome = true
+            } label: {
+                Text("Projects")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 300, minHeight: 40)
+                    .background(LinearGradient(colors: [.blue,.pink],
+                                               startPoint: .leading, endPoint: .trailing))
+                    .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
             
-            Button("New Project"){
+            
+            Button(){
                 isDisplayingNewProject = true
+            } label: {
+                Text("New Project")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 300, minHeight: 40)
+                    .background(LinearGradient(colors: [.blue,.pink],
+                                               startPoint: .leading, endPoint: .trailing))
+                    .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
             
-            Button("User Profile"){
+            
+            Button(){
                 
+            } label: {
+                Text("User Profile")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 300, minHeight: 40)
+                    .background(LinearGradient(colors: [.blue,.pink],
+                                               startPoint: .leading, endPoint: .trailing))
+                    .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
             
-            Button("Reset Password"){
+            
+            Button(){
                 
+            } label: {
+                Text("Reset Password")
+                .foregroundColor(.white)
+                .frame(maxWidth: 300, minHeight: 40)
+                .background(LinearGradient(colors: [.blue,.pink],
+                                           startPoint: .leading, endPoint: .trailing))
+                .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
             
-            Button("About"){
+            
+            Button(){
                 isDisplayingAbout = true
+            }label: {
+                Text("About")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 300, minHeight: 40)
+                    .background(LinearGradient(colors: [.blue,.pink],
+                                               startPoint: .leading, endPoint: .trailing))
+                    .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
             
-            Button("Log Out"){
+            
+            Button(){
                 savedToken = nil
                 isDisplayingLogin = true
+            } label: {
+                Text("Log Out")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: 300, minHeight: 40)
+                    .background(LinearGradient(colors: [.blue,.pink],
+                                               startPoint: .leading, endPoint: .trailing))
+                    .clipShape(Capsule())
             }
-            .foregroundColor(.white)
-            .frame(width: 300, height: 50)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .bold()
+            
             
         }
         .frame(maxWidth: .infinity, maxHeight:  .infinity)

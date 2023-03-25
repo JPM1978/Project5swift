@@ -25,9 +25,9 @@ struct Response: Codable {
 }
 
 struct LoginView: View {
+    
     @State private var wrongUsername = 0
     @State private var wrongPassword = 0
-    @State private var showingLoginScreen = false
     @State private var isNewUser = false
     @State var isDisplayingHome: Bool = false
     @KeychainStorage("MyToken") var savedToken = ""
@@ -45,39 +45,44 @@ struct LoginView: View {
                     .bold()
                     .padding()
                     .background(Color.black)
-                    .cornerRadius(20)
+                    .clipShape(Capsule())
                 
                 TextField("Username", text: $user.username)
                     .colorScheme(.light)
                     .bold()
                     .padding()
-                    .frame(width:300, height: 50)
+                    .frame(width:300, height: 45)
                     .background(Color.white.opacity(0.99))
-                    .cornerRadius(10)
-                    .border(.red, width: CGFloat(wrongUsername))
+//                    .clipShape(Capsule())
+                    .border(.red, width:  CGFloat(wrongUsername))
+                    .clipShape(Capsule())
+                
                 
                 if isNewUser {
                     TextField("Email", text: $user.email)
                         .colorScheme(.light)
                         .bold()
                         .padding()
-                        .frame(width:300, height: 50)
+                        .frame(width:300, height: 45)
                         .background(Color.white.opacity(0.99))
-                        .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
+                        .clipShape(Capsule())
+                        
+                        
                 }
                 
                 
                 SecureField("Password", text: $user.password)
                     .colorScheme(.light)
                     .padding()
-                    .frame(width:300, height: 50)
+                    .frame(width:300, height: 45)
                     .background(Color.white.opacity(0.99))
-                    .cornerRadius(10)
+//                    .clipShape(Capsule())
                     .border(.red, width: CGFloat(wrongUsername))
+                    .clipShape(Capsule())
                 
                 
-                Button(isNewUser ? "Create Account" : "Login") {
+                Button() {
+                   
                     Task {
                         if isNewUser {
                             await signUp(user: user)
@@ -86,32 +91,42 @@ struct LoginView: View {
                         }
                     }
                     
+                } label: {
+                    Text(isNewUser ? "Create Account" : "Login")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 300, minHeight: 40)
+                        .background(LinearGradient(colors: [.blue,.pink],
+                                                   startPoint: .leading, endPoint: .trailing))
+                        .clipShape(Capsule())
                 }
                 
-                .foregroundColor(.white)
-                .frame(width: 300, height: 50)
-                .background(Color.blue)
-                .cornerRadius(10)
-                
-                Button(isNewUser ? "Switch To Login" : "New User") {
+                Button() {
                     isNewUser.toggle()
-                }
-                
-                .foregroundColor(.white)
-                .frame(width: 300, height: 50)
-                .background(Color.red)
-                .cornerRadius(10)
-                
-                Button("Forgot Password") {
                     
+                }  label: {
+                    Text(isNewUser ? "Switch To Login" : "New User")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 300, minHeight: 40)
+                        .background(LinearGradient(colors: [.blue,.pink],
+                                                   startPoint: .leading, endPoint: .trailing))
+                        .clipShape(Capsule())
                 }
                 
-                .foregroundColor(.white)
-                .frame(width: 300, height: 50)
-                .background(Color.red)
-                .cornerRadius(10)
                 
-            
+                Button() {
+                    
+                } label: {
+                    Text("Forgot Password")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 300, minHeight: 40)
+                        .background(LinearGradient(colors: [.blue,.pink],
+                                                   startPoint: .leading, endPoint: .trailing))
+                        .clipShape(Capsule())
+                }
+                
+                
+                
+                
             }
             .background {
                 Image("loginBackground4")
@@ -130,7 +145,8 @@ struct LoginView: View {
     
     func logIn(user: User) async {
         
-        guard let encodedUser = try? JSONEncoder().encode(user) else { return }
+        guard let encodedUser = try? JSONEncoder().encode(user) else { return
+        }
         let url = URL(string: "https://project-5-mlyi.onrender.com/api/login/")!
         
         var request = URLRequest(url: url)
@@ -146,14 +162,16 @@ struct LoginView: View {
             presentationMode.wrappedValue.dismiss()
             
         } catch {
-            print(error )
+            wrongUsername = 2
+            print(error)
             
         }
     }
     
     
     func signUp(user: User) async {
-        guard let encodedUser = try? JSONEncoder().encode(user) else { return }
+        guard let encodedUser = try? JSONEncoder().encode(user) else { return
+        }
         let url = URL(string: "https://project-5-mlyi.onrender.com/api/register/")!
         
         var request = URLRequest(url: url)
@@ -170,10 +188,11 @@ struct LoginView: View {
             presentationMode.wrappedValue.dismiss()
             
         } catch {
+            wrongUsername = 2
             print(error)
             
         }
-        
+       
     }
     
 }

@@ -15,3 +15,9 @@ struct Assist_Pro_ManagerApp: App {
         }
     }
 }
+
+struct Previews_Assist_Pro_ManagerApp_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}
