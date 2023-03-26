@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F27922829CFCBF2001864BB /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F27922729CFCBF2001864BB /* ForgotPassword.swift */; };
 		0F99712D29C3409C000F2A88 /* ProjectFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99712C29C3409C000F2A88 /* ProjectFormView.swift */; };
 		0F99713929C4D88B000F2A88 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99713829C4D88B000F2A88 /* ContentView2.swift */; };
 		0FAF9B2029C10C36000684F1 /* Assist_Pro_ManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF9B1F29C10C36000684F1 /* Assist_Pro_ManagerApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F27922729CFCBF2001864BB /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		0F99712C29C3409C000F2A88 /* ProjectFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormView.swift; sourceTree = "<group>"; };
 		0F99713829C4D88B000F2A88 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		0FAF9B1C29C10C36000684F1 /* Assist Pro Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assist Pro Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				0FD16FDE29C8AE9000BFAC6C /* ManagerView.swift */,
 				0FD16FE029CA18C500BFAC6C /* AboutPage.swift */,
 				0FD16FE229CC050000BFAC6C /* KeyChain.swift */,
+				0F27922729CFCBF2001864BB /* ForgotPassword.swift */,
 			);
 			path = "Assist Pro Manager";
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				0FAF9B2229C10C36000684F1 /* LoginView.swift in Sources */,
 				0FD16FE329CC050000BFAC6C /* KeyChain.swift in Sources */,
 				0FAF9B2029C10C36000684F1 /* Assist_Pro_ManagerApp.swift in Sources */,
+				0F27922829CFCBF2001864BB /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

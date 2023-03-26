@@ -13,6 +13,8 @@ struct ProjectFormView: View {
     var isNewProject: Bool
     @Environment(\.presentationMode) var presentationMode
     @State var project: Project
+//    @State var function: fetchData
+    
     
     var body: some View {
         NavigationView {
@@ -117,14 +119,18 @@ struct ProjectFormView: View {
             url = URL(string: "https://project-5-mlyi.onrender.com/assists/\(project.id)")!
         }
         var request = URLRequest(url: url)
+        
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = isNewProject ? "POST" : "PUT"
+        
         
         
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encodedProject)
             print(String(data: data, encoding: .utf8))
             presentationMode.wrappedValue.dismiss()
+            
+            
             
         } catch {
             print(error)

@@ -53,7 +53,6 @@ struct LoginView: View {
                     .padding()
                     .frame(width:300, height: 45)
                     .background(Color.white.opacity(0.99))
-//                    .clipShape(Capsule())
                     .border(.red, width:  CGFloat(wrongUsername))
                     .clipShape(Capsule())
                 
@@ -67,7 +66,6 @@ struct LoginView: View {
                         .background(Color.white.opacity(0.99))
                         .clipShape(Capsule())
                         
-                        
                 }
                 
                 
@@ -76,7 +74,6 @@ struct LoginView: View {
                     .padding()
                     .frame(width:300, height: 45)
                     .background(Color.white.opacity(0.99))
-//                    .clipShape(Capsule())
                     .border(.red, width: CGFloat(wrongUsername))
                     .clipShape(Capsule())
                 

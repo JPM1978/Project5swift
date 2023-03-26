@@ -118,7 +118,7 @@ struct HomeView: View {
     }
     func delete(project:Project) async {
         guard let encodedProject = try? JSONEncoder().encode(project) else { return }
-        let prefixUrl = "https://project-5-mlyi.onrender.com/"
+        let prefixUrl = "https://project-5-mlyi.onrender.com"
         guard let url = URL(string: "\(prefixUrl)/assists/\(String(project.id))/") else {
             print("Not found url")
             return
@@ -127,6 +127,8 @@ struct HomeView: View {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "DELETE"
         print(project)
+        print(request.url)
+    
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encodedProject)
             print(String(data: data, encoding: .utf8))
@@ -146,6 +148,7 @@ struct HomeView: View {
             DispatchQueue.main.async {
                 let projects = try! JSONDecoder().decode([Project].self, from: data)
                 self.projects = projects
+                
             }
         } catch {
             print(error)

@@ -91,9 +91,9 @@ struct ManagerView: View {
                     .background(LinearGradient(colors: [.blue,.pink],
                                                startPoint: .leading, endPoint: .trailing))
                     .clipShape(Capsule())
-            }
+            }  
             
-            
+       
         }
         .frame(maxWidth: .infinity, maxHeight:  .infinity)
         .background(Color(uiColor: UIColor.systemBackground)
