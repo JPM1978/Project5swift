@@ -9,17 +9,20 @@ import SwiftUI
 
 struct DetailView: View {
     @State var sheetIsPresented = false
+    
     var project: Project
     var body: some View {
         NavigationView{
             ScrollView{
                 VStack{
                     
-                    Text(project.project)
+                    Text("")
+                        .navigationTitle(project.project)
+//                        .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.largeTitle)
                         .multilineTextAlignment(.leading)
-                        .padding()
+//                        .padding()
                     
                     Text(project.address)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -37,13 +40,17 @@ struct DetailView: View {
                         .padding()
                     
                     Spacer()
+                        
                     
                 }
+               
             }
+//            .clipped()
            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.orange)}
             .scrollContentBackground(.hidden)
+//            .navigationBarHidden(true)
             .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {

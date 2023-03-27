@@ -65,7 +65,7 @@ struct LoginView: View {
                         .frame(width:300, height: 45)
                         .background(Color.white.opacity(0.99))
                         .clipShape(Capsule())
-                        
+                    
                 }
                 
                 
@@ -79,7 +79,7 @@ struct LoginView: View {
                 
                 
                 Button() {
-                   
+                    
                     Task {
                         if isNewUser {
                             await signUp(user: user)
@@ -120,16 +120,15 @@ struct LoginView: View {
                                                    startPoint: .leading, endPoint: .trailing))
                         .clipShape(Capsule())
                 }
-                
-                
-                
-                
+        
             }
             .background {
                 Image("loginBackground4")
             }
             .scrollContentBackground(.hidden)
             .interactiveDismissDisabled()
+            
+            
         }
         
         .fullScreenCover(isPresented: $isDisplayingHome) {
@@ -189,7 +188,7 @@ struct LoginView: View {
             print(error)
             
         }
-       
+        
     }
     
 }

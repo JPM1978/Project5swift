@@ -49,6 +49,7 @@ struct HomeView: View {
                         }
                         
                         .navigationTitle("Projects")
+                        .navigationBarTitleDisplayMode(.inline)
                         .foregroundColor(.primary)
                         
                     }
