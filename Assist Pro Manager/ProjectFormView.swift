@@ -10,10 +10,11 @@
 import SwiftUI
 
 struct ProjectFormView: View {
+    
     var isNewProject: Bool
     @Environment(\.presentationMode) var presentationMode
     @State var project: Project
-//    @State var function: fetchData
+    @State var refresh: Bool = false
     
     
     var body: some View {
@@ -21,9 +22,8 @@ struct ProjectFormView: View {
             ScrollView{
                 VStack {
                     
-                    TextField("", text: $project.project )
+                    TextField("Project Name", text: $project.project )
                         .placeholder(when: project.project.isEmpty) {
-                            Text("Project Name").foregroundColor(.gray)
                         }
                         .padding()
                         .foregroundColor(Color(uiColor: .label))
@@ -31,9 +31,8 @@ struct ProjectFormView: View {
                         .background(Color("textFieldBackgroundcolor")
                         .cornerRadius(10))
                     
-                    TextField("", text: $project.manufacture)
+                    TextField("Manufacture / Company", text: $project.manufacture)
                         .placeholder(when: project.project.isEmpty) {
-                            Text("Manufacture/Company").foregroundColor(.gray)
                         }
                         .padding()
                         .foregroundColor(Color(uiColor: .label))
@@ -41,9 +40,8 @@ struct ProjectFormView: View {
                         .background(Color("textFieldBackgroundcolor")
                         .cornerRadius(10))
                     
-                    TextField("", text:  $project.address)
+                    TextField("Location", text:  $project.address)
                         .placeholder(when: project.project.isEmpty) {
-                            Text("Location").foregroundColor(.gray)
                         }
                         .padding()
                         .foregroundColor(Color(uiColor: .label))
@@ -51,9 +49,8 @@ struct ProjectFormView: View {
                         .background(Color("textFieldBackgroundcolor")
                         .cornerRadius(10))
                     
-                    TextField("", text: $project.due)
+                    TextField("Due Date", text: $project.due)
                         .placeholder(when: project.project.isEmpty) {
-                            Text("Due Date").foregroundColor(.gray)
                         }
                         .padding()
                         .foregroundColor(Color(uiColor: .label))
@@ -78,10 +75,11 @@ struct ProjectFormView: View {
                         
                     
                     Button(action: {
+                        
                         Task {
                             await update(project: project)
                         }
-                        
+                      
                         
                         
                     }, label:  {
@@ -109,6 +107,10 @@ struct ProjectFormView: View {
         }
         
     }
+    func update() {
+       refresh.toggle()
+    }
+    
     func update(project: Project) async {
         
         guard let encodedProject = try? JSONEncoder().encode(project) else { return }

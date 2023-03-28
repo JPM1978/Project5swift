@@ -18,12 +18,10 @@ struct DetailView: View {
                     
                     Text("")
                         .navigationTitle(project.project)
-//                        .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.largeTitle)
                         .multilineTextAlignment(.leading)
-//                        .padding()
-                    
+
                     Text(project.address)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
@@ -45,12 +43,11 @@ struct DetailView: View {
                 }
                
             }
-//            .clipped()
+
            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.orange)}
             .scrollContentBackground(.hidden)
-//            .navigationBarHidden(true)
             .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {

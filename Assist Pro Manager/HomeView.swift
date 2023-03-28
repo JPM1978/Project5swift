@@ -9,12 +9,15 @@ import SwiftUI
 
 
 struct Project: Codable, Identifiable {
+    
     var id: Int = UUID().hashValue
     var project: String = ""
     var manufacture: String = ""
     var address: String = ""
     var due: String = ""
     var details: String = ""
+    
+    
     
     
     static func example() -> Project {
@@ -24,6 +27,7 @@ struct Project: Codable, Identifiable {
 
 
 struct HomeView: View {
+    @State var refresh: Bool = false
     @State var isDisplayingNewProject: Bool = false
     @State var projects: [Project] = []
     @State var isDisplayingLogin: Bool = false
@@ -47,9 +51,8 @@ struct HomeView: View {
                                 .foregroundColor(.secondary)
                             
                         }
-                        
                         .navigationTitle("Projects")
-                        .navigationBarTitleDisplayMode(.inline)
+//                        .navigationBarTitleDisplayMode(.inline)
                         .foregroundColor(.primary)
                         
                     }

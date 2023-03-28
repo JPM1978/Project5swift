@@ -30,6 +30,7 @@ struct LoginView: View {
     @State private var wrongPassword = 0
     @State private var isNewUser = false
     @State var isDisplayingHome: Bool = false
+    @State var isDisplayingAbout: Bool = false
     @KeychainStorage("MyToken") var savedToken = ""
     @State private var user: User = User()
     @Environment(\.presentationMode) var presentationMode
@@ -111,9 +112,9 @@ struct LoginView: View {
                 
                 
                 Button() {
-                    
+                    isDisplayingAbout = true
                 } label: {
-                    Text("Forgot Password")
+                    Text("About Me")
                         .foregroundColor(.white)
                         .frame(maxWidth: 300, minHeight: 40)
                         .background(LinearGradient(colors: [.blue,.pink],
@@ -133,6 +134,9 @@ struct LoginView: View {
         
         .fullScreenCover(isPresented: $isDisplayingHome) {
             HomeView()
+        }
+        .sheet(isPresented: $isDisplayingAbout) {
+            AboutPage()
             
         }
         .navigationBarHidden(true)
