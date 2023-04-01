@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ManagerView: View {
     @Environment(\.colorScheme) var colorScheme
+    @State var project = Project()
     @State var isDisplayingNewProject: Bool = false
     @State var isDisplayingLogin: Bool = false
     @State var isDisplayingHome: Bool = false
@@ -99,7 +100,7 @@ struct ManagerView: View {
         .background(Color(uiColor: UIColor.systemBackground)
         )
         .sheet(isPresented: $isDisplayingNewProject) {
-            ProjectFormView(isNewProject: true, project: Project())
+            ProjectFormView(isNewProject: true, project: $project)
         }
         .fullScreenCover(isPresented: $isDisplayingLogin) {
             LoginView()

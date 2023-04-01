@@ -10,10 +10,10 @@
 import SwiftUI
 
 struct ProjectFormView: View {
-    
+
     var isNewProject: Bool
     @Environment(\.presentationMode) var presentationMode
-    @State var project: Project
+    @Binding var project: Project
     @State var refresh: Bool = false
     
     
@@ -60,9 +60,11 @@ struct ProjectFormView: View {
                     
                     Text("Description")
                         .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
                         .frame(maxWidth: 300, minHeight: 40)
-                        .background(LinearGradient(colors: [.black,.pink],
-                                                   startPoint: .leading, endPoint: .trailing))
+//                        .background(LinearGradient(colors: [.black,.pink],
+//                                                   startPoint: .leading, endPoint: .trailing))
                         .clipShape(Capsule())
                     
                     TextEditor(text: $project.details)
@@ -84,18 +86,18 @@ struct ProjectFormView: View {
                         
                     }, label:  {
                         Text(isNewProject ? "Add New Project" : "Update Project")
+                        
                                              
                     }
+                           
                     )
                     .buttonStyle(.borderedProminent)
-                  
-                    
                     .disabled(project.project.isEmpty || project.manufacture.isEmpty || project.address.isEmpty || project.due.isEmpty || project.details.isEmpty)
                     
                     Spacer()
                     
                 }
-                .padding()
+
             }
             
             
@@ -137,12 +139,15 @@ struct ProjectFormView: View {
         } catch {
             print(error)
         }
+        
     }
+    
 }
 
 struct NewProjectView_Previews: PreviewProvider {
+//    @State var project = Project()
     static var previews: some View {
-        ProjectFormView(isNewProject: true, project: Project())
+        ProjectFormView(isNewProject: true, project: .constant(Project()))
     }
 }
 

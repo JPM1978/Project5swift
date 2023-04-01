@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @State var sheetIsPresented = false
     
-    var project: Project
+    @Binding var project: Project
     var body: some View {
         NavigationView{
             ScrollView{
@@ -60,7 +60,7 @@ struct DetailView: View {
             }
         }
         .sheet(isPresented: $sheetIsPresented) {
-            ProjectFormView(isNewProject: false, project: project)
+            ProjectFormView(isNewProject: false, project: $project)
         }
         
     }
@@ -70,6 +70,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(project: Project.example())
+        DetailView(project: .constant(Project.example()))
     }
 }

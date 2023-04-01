@@ -8,25 +8,11 @@
 import SwiftUI
 
 
-struct Project: Codable, Identifiable {
-    
-    var id: Int = UUID().hashValue
-    var project: String = ""
-    var manufacture: String = ""
-    var address: String = ""
-    var due: String = ""
-    var details: String = ""
-    
-    
-    
-    
-    static func example() -> Project {
-        return Project(id: 100, project: "Project", manufacture: "Name of Company", address: "Location", due: "date to finish", details: "explanaition")
-    }
-}
+
 
 
 struct HomeView: View {
+    @State var newProject = Project()
     @State var refresh: Bool = false
     @State var isDisplayingNewProject: Bool = false
     @State var projects: [Project] = []
@@ -39,20 +25,20 @@ struct HomeView: View {
             
             List {
                 
-                ForEach(projects) { project in
+                ForEach($projects) { project in
                     NavigationLink {
                         DetailView(project: project)
                         
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(project.project)
-                            Text(project.due)
+                            Text(project.project.wrappedValue)
+                            Text(project.due.wrappedValue)
                                 .font(.caption)
                                 .foregroundColor(.secondary)
                             
                         }
                         .navigationTitle("Projects")
-//                        .navigationBarTitleDisplayMode(.inline)
+                        //                        .navigationBarTitleDisplayMode(.inline)
                         .foregroundColor(.primary)
                         
                     }
@@ -102,7 +88,7 @@ struct HomeView: View {
             isDisplayingLogin = saveToken == nil
         }
         .sheet(isPresented: $isDisplayingNewProject) {
-            ProjectFormView(isNewProject: true, project: Project())
+            ProjectFormView(isNewProject: true, project: $newProject)
         }
         .fullScreenCover(isPresented: $isDisplayingLogin) {
             LoginView()
@@ -126,13 +112,17 @@ struct HomeView: View {
         guard let url = URL(string: "\(prefixUrl)/assists/\(String(project.id))/") else {
             print("Not found url")
             return
+            
         }
+        
+        
+        
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "DELETE"
         print(project)
         print(request.url)
-    
+        
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encodedProject)
             print(String(data: data, encoding: .utf8))
@@ -141,6 +131,7 @@ struct HomeView: View {
             print(error)
             print("failed")
         }
+        await self.fetchData()
     }
     
     

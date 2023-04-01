@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F27922A29D7C735001864BB /* Project .swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F27922929D7C735001864BB /* Project .swift */; };
 		0F99712D29C3409C000F2A88 /* ProjectFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99712C29C3409C000F2A88 /* ProjectFormView.swift */; };
-		0F99713929C4D88B000F2A88 /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99713829C4D88B000F2A88 /* ContentView2.swift */; };
 		0FAF9B2029C10C36000684F1 /* Assist_Pro_ManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF9B1F29C10C36000684F1 /* Assist_Pro_ManagerApp.swift */; };
 		0FAF9B2229C10C36000684F1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAF9B2129C10C36000684F1 /* LoginView.swift */; };
 		0FAF9B2429C10C38000684F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FAF9B2329C10C38000684F1 /* Assets.xcassets */; };
@@ -22,8 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F27922929D7C735001864BB /* Project .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project .swift"; sourceTree = "<group>"; };
 		0F99712C29C3409C000F2A88 /* ProjectFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectFormView.swift; sourceTree = "<group>"; };
-		0F99713829C4D88B000F2A88 /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		0FAF9B1C29C10C36000684F1 /* Assist Pro Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assist Pro Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FAF9B1F29C10C36000684F1 /* Assist_Pro_ManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assist_Pro_ManagerApp.swift; sourceTree = "<group>"; };
 		0FAF9B2129C10C36000684F1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -67,9 +67,9 @@
 		0FAF9B1E29C10C36000684F1 /* Assist Pro Manager */ = {
 			isa = PBXGroup;
 			children = (
+				0F27922929D7C735001864BB /* Project .swift */,
 				0FAF9B1F29C10C36000684F1 /* Assist_Pro_ManagerApp.swift */,
 				0FAF9B2129C10C36000684F1 /* LoginView.swift */,
-				0F99713829C4D88B000F2A88 /* ContentView2.swift */,
 				0FAF9B2329C10C38000684F1 /* Assets.xcassets */,
 				0FAF9B2529C10C38000684F1 /* Preview Content */,
 				0FAF9B2D29C15C11000684F1 /* HomeView.swift */,
@@ -166,12 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F27922A29D7C735001864BB /* Project .swift in Sources */,
 				0FAF9B2E29C15C11000684F1 /* HomeView.swift in Sources */,
 				0F99712D29C3409C000F2A88 /* ProjectFormView.swift in Sources */,
 				0FD16FE129CA18C500BFAC6C /* AboutPage.swift in Sources */,
 				0FAF9B3029C16E1F000684F1 /* DetailView.swift in Sources */,
 				0FD16FDF29C8AE9000BFAC6C /* ManagerView.swift in Sources */,
-				0F99713929C4D88B000F2A88 /* ContentView2.swift in Sources */,
 				0FAF9B2229C10C36000684F1 /* LoginView.swift in Sources */,
 				0FD16FE329CC050000BFAC6C /* KeyChain.swift in Sources */,
 				0FAF9B2029C10C36000684F1 /* Assist_Pro_ManagerApp.swift in Sources */,
