@@ -37,7 +37,7 @@ struct DetailView: View {
                     Text(project.details)
                         .padding()
                     
-                    Spacer()
+//                    Spacer()
                         
                     
                 }
